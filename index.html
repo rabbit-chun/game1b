@@ -26,7 +26,7 @@
   (()=>{
     const levels={easy:{name:'簡單',start:80,allow:[24,25,24,25,24,10,10,25,24,25],target:260,happy:18},medium:{name:'中等',start:40,allow:[18,18,18,18,18,8,8,18,18,18],target:174,happy:12},hard:{name:'困難',start:20,allow:[22,22,22,22,22,10,10,22,22,22],target:60,happy:6}};
     const weekday=d=>[1,2,3,4,5,8,9,10].includes(d);
-    const dayTitles={1:['存錢第一天','新的一週開始了，早餐店飄來香味。'],2:['鉛筆盒裡的選擇','自動鉛筆快寫不出來了，文具店正在特價。'],3:['同學的邀約','同學約你一起買一組大家都在用的文具。'],4:['下雨的早晨','天空灰灰的，出門前你發現傘還在家。'],5:['午休小聚會','同學們約好一起分享點心，聊昨天的趣事。'],6:['週末小任務','不用上學！家人請你幫忙跑腿，路上有好多小店。'],7:['玩具店櫥窗','經過玩具店，看見一個小公仔正在打折。'],8:['課本不見了！','早上整理書包，發現今天要用的課本找不到。'],9:['同學的文具','你不小心把借來的自動鉛筆弄壞了，得和同學商量。'],10:['最後一天！','今天是最後一關，回家前還有一次買早餐的機會。'};
+    const dayTitles={1:['存錢第一天','新的一週開始了，早餐店飄來香味。'],2:['鉛筆盒裡的選擇','自動鉛筆快寫不出來了，文具店正在特價。'],3:['同學的邀約','同學約你一起買一組大家都在用的文具。'],4:['下雨的早晨','天空灰灰的，出門前你發現傘還在家。'],5:['午休小聚會','同學們約好一起分享點心，聊昨天的趣事。'],6:['週末小任務','不用上學！家人請你幫忙跑腿，路上有好多小店。'],7:['玩具店櫥窗','經過玩具店，看見一個小公仔正在打折。'],8:['課本不見了！','早上整理書包，發現今天要用的課本找不到。'],9:['同學的文具','你不小心把借來的自動鉛筆弄壞了，得和同學商量。'],10:['最後一天！','今天是最後一關，回家前還有一次買早餐的機會。']};
     let s=null,sound=true,selected=null,preview=null;
     const $=id=>document.getElementById(id), esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function beep(freq=560,duration=.08){if(!sound)return;try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=freq;o.type='sine';g.gain.value=.035;o.connect(g);g.connect(c.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,c.currentTime+duration);o.stop(c.currentTime+duration);o.onended=()=>c.close()}catch{}}
